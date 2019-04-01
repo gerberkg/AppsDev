@@ -44,7 +44,7 @@
             </c:otherwise>
         </c:choose>
 
-        <label>User ID:</label>
+        <label>Username:</label>
         <c:choose>
             <c:when test="${userId != null}">
                 <input type="text" name="userID" value="${userId}" /><br>
@@ -56,19 +56,19 @@
         <label>Password:</label>
         <c:choose>
             <c:when test="${password != null}">
-                <input type="text" name="password" value="${password}" /><br>
+                <input type="password" name="password" value="${password}" /><br>
             </c:when>
             <c:otherwise>
-                <input type="text" name="password" value="${user.password}" /><br>
+                <input type="password" name="password" value="${user.password}" /><br>
             </c:otherwise>
         </c:choose>
         <label>Verify Password:</label>
         <c:choose>
             <c:when test="${verifyPassword != null}">
-                <input type="text" name="verifyPassword" value="${verifyPassword}" /><br>
+                <input type="password" name="verifyPassword" value="${verifyPassword}" /><br>
             </c:when>
             <c:otherwise>
-                <input type="text" name="verifyPassword" value="${user.verifyPassword}" /><br>
+                <input type="password" name="verifyPassword" value="${user.verifyPassword}" /><br>
             </c:otherwise>
         </c:choose>
 

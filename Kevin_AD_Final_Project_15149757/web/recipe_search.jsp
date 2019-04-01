@@ -23,8 +23,8 @@
                     <input type="radio" id="category" name="search_type" value="category">
                     <span class="checkmark"></span>
                 </label>
-                <label class="container" for="nameCat">Name and/or Category
-                    <input type="radio" id="nameCat" name="search_type" value="nameCat">
+                <label class="container" for="nameCat">Name
+                    <input type="radio" id="nameCat" name="search_type" value="name">
                     <span class="checkmark"></span>
                 </label>
                 <br><br>

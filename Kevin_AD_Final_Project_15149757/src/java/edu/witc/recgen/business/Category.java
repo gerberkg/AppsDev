@@ -24,6 +24,16 @@ public class Category {
         active=0;
     }
 
+    public Category(String category_name) {
+        this.category_name = category_name;
+    }
+
+    public Category(int id, String category_name, int active) {
+        this.id = id;
+        this.category_name = category_name;
+        this.active = active;
+    }
+
     public Category(int id, String category_name, LocalDate last_mod_date, int active) {
         this.id = id;
         this.category_name = category_name;

@@ -6,44 +6,43 @@
 
 <%@ include file="/includes/header.jsp" %>
 <title>Ingredient List</title>
-<header>
     <h1>Select Ingredients</h1>
-</header>
 <main>
     <section>
         <div class="column1">
-            <table border="1">
+            <p class="error"><i><c:out value="${message}" default="" /></i></p>
+            <form action="recipeGenerator" method="post">
+                <table border="1">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Status</th>
-                    <th>Manage</th>
+                    <th>Select?</th>
                 </tr>
 
                 <c:forEach var="ingredient" items="${ingredients}">
-                <tr>
-                    <td><c:out value="${ingredient.id}"/></td>
-                    <td><c:out value="${ingredient.ingredient_name}"/></td>
-                    <c:choose>
-                        <c:when test="${ingredient.active == 1}">
-                            <td><c:out value="Active"/></td>
-                        </c:when>
-                    <c:otherwise>
-                            <td><c:out value="Inactive"/></td>
-                    </c:otherwise>
-                    </c:choose>            
+                    <tr>
+                        <td><c:out value="${ingredient.id}"/></td>
+                        <td><c:out value="${ingredient.ingredient_name}"/></td>
+                        <c:choose>
+                            <c:when test="${ingredient.active == 1}">
+                                <td><c:out value="Active"/></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><c:out value="Inactive"/></td>
+                            </c:otherwise>
+                        </c:choose>            
 
-                    <td>
-                        <form action="recipeGenerator" method="post">
-                            <input type="hidden" name="action" value="selectIngredient">
-                            <input type="hidden" name="ingredientId" value="${ingredient.id}">
-                            <input type="hidden" name="ingredient_name" value="${ingredient.ingredient_name}">
-                            <input type="submit" class="edit" value="Select">
-                        </form>
-                    </td>
-                </tr>
+                        <td>
+                            <input type="checkbox" name="checkIngredient" value="${ingredient.id}"/>
+                        </td>
+                    </tr>
                 </c:forEach>
             </table>
+
+                <input type="hidden" name="action" value="selectIngredients">
+                <input type="submit" class="edit" value="Select">
+            </form>
         </div>
     </section>
 </main>

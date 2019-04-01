@@ -7,6 +7,7 @@ package edu.witc.recgen.business;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -15,36 +16,77 @@ import java.time.LocalDate;
 public class Recipe implements Serializable{
     private int id;
     private String recipe_name;
-    private int category_id;
     private LocalDate last_mod_date;
     private int active;
     private String serving_size;
+    private List<Category> categories;
+    private List<Ingredient> ingredients;
+    private String instructions;
 
     public Recipe() {
         id = 0;
         recipe_name = "";
-        category_id = 0;
         last_mod_date = null;
         active = 0;
         serving_size = "";
+        instructions = "";
     }
 
-    public Recipe(String recipe_name, int category_id, LocalDate last_mod_date, int active, String serving_size) {
+    public Recipe(String recipe_name, LocalDate last_mod_date, int active, 
+            String serving_size, String instructions) {
         this.recipe_name = recipe_name;
-        this.category_id = category_id;
         this.last_mod_date = last_mod_date;
         this.active = active;
         this.serving_size = serving_size;
+        this.instructions = instructions;
     }
-
     
-    public Recipe(int id, String recipe_name, int category_id, LocalDate last_mod_date, int active, String serving_size) {
+    public Recipe(int id, String recipe_name, LocalDate last_mod_date, 
+            int active, String serving_size, String instructions) {
         this.id = id;
         this.recipe_name = recipe_name;
-        this.category_id = category_id;
         this.last_mod_date = last_mod_date;
         this.active = active;
         this.serving_size = serving_size;
+        this.instructions = instructions;
+    }
+
+    public Recipe(int id, String recipe_name) {
+        this.id = id;
+        this.recipe_name = recipe_name;
+    }
+
+    public Recipe(int id, String recipe_name, int active, String serving_size, 
+            String instructions) {
+        this.id = id;
+        this.recipe_name = recipe_name;
+        this.active = active;
+        this.serving_size = serving_size;
+        this.instructions = instructions;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public int getId() {
@@ -61,14 +103,6 @@ public class Recipe implements Serializable{
 
     public void setRecipe_name(String recipe_name) {
         this.recipe_name = recipe_name;
-    }
-
-    public int getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
     }
 
     public LocalDate getLast_mod_date() {

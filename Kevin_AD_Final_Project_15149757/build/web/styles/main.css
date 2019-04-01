@@ -1,0 +1,325 @@
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    /*margin: 1em auto;*/
+    width: 99%;
+}
+
+header {
+    border: 2px solid black;
+    text-align: center;
+    /*z-index: 999;*/
+    width: 99%;
+    margin-bottom: 1em;
+    background-color: lightsteelblue;
+}
+
+h1 {
+    color: navy;
+}
+
+/* navigation styles start here */
+.nav-toggle {
+    display: none;
+}
+.nav-toggle-label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    margin-left: 1em;
+    /*border: 1px solid navy;*/
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: navy;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 10%;
+    left: .5em;
+    background: lightsteelblue; 
+    width: 98%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav li {
+    border: 1px solid navy;
+    margin-bottom: .5em;
+    margin-left: .5em;
+}
+nav a {
+    color: navy;
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+}
+
+nav a:hover {
+    background: navy;
+    color: lightsteelblue;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+nav .link {
+    display: block;
+    text-align: left;
+    padding: .1em;
+    color: navy;
+    background: lightsteelblue;
+    text-decoration: none;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav .toggle {
+    padding: 1em;
+    color: black;
+}
+/* End nav styles for mobile */
+
+/* The container for custom radio buttons*/
+.container {
+  display: block;
+  position: relative;
+  width: auto;
+  padding-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: lightsteelblue;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: navy;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: navy;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 5px;
+	left: 5px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: white;
+}
+
+label {
+    position: static;
+    width: 10em;
+    padding-right: 0;
+    float: left;
+    margin-left: .5em;
+}
+input[type="text"] {  /* An attribute selector */
+    position: static;
+    float: left;
+    width: 13em;
+    margin-bottom: .5em;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+input[type="password"] {  /* An attribute selector */
+    float: left;
+    width: 13em;
+    margin-bottom: .5em;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+input[type="email"] {  /* An attribute selector */
+    float: left;
+    width: 13em;
+    margin-bottom: .5em;
+}
+
+input[type="date"] {
+    float: left;
+    width: 13em;
+    margin-bottom: .5em;
+    margin-left: 1em;
+}
+select {
+    float: left;
+    width: 13em;
+    margin-bottom: .5em;
+    margin-left: 1em;
+}
+
+br {
+    clear: left;
+}
+.error {
+    color: red;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+footer {
+    clear: both;
+    border: 2px solid black;
+    background-color: lightsteelblue;
+    padding: 10px 10px;
+    margin-top: 1em;
+    width: 99%;
+}
+footer p {
+	font-size: 80%;
+}
+.copyright {
+    text-align: left;
+    margin-left: 1em;
+}
+.customerServiceEmail {
+    float: right;
+    text-align: right;
+    margin-right: 1em;
+}
+
+@media (min-width: 950px) {
+    .nav-toggle-label {
+        display: none;
+    }
+    
+    header {
+        display: grid;
+        grid-template-columns: auto minmax(250px, 1fr);
+    }
+    
+    .logo {
+        grid-column: 1 / span 1;
+    }
+    nav {
+        all: unset;
+        grid-column: 2 / 4;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    nav ul {
+        display: flex;
+    }
+    
+    nav li {
+        margin-left: 1em;
+        margin-bottom: 0;
+        border: none;
+    }
+    nav a {
+        opacity: 1;
+        position: relative;
+    }
+    
+    nav a:hover {
+        background: lightsteelblue;
+        color: navy;
+    }
+
+    nav a::before{
+        content: '';
+        display: block;
+        height: 3px;
+        background: navy;
+        position: absolute;
+        top: -.5em;
+        left: 0;
+        right: 0;
+        transform: scale(0,1);
+        transition: transfrom ease-in-out 2500ms;
+    }
+    nav a:hover::before {
+        transform: scale(1,1);
+    }
+
+}

@@ -38,6 +38,11 @@ public class User implements Serializable{
     public User(int id) {
         this.id = id;
     }
+
+    public User(int id, int isAdmin) {
+        this.id = id;
+        this.isAdmin = isAdmin;
+    }
     
     public User (String firstName, String lastName, String user_id, String password,
             String email, int active, int isAdmin){

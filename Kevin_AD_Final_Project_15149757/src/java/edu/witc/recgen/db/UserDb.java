@@ -141,7 +141,7 @@ public class UserDb {
         PreparedStatement ps = null;
         User user = null;
 
-        String sql = "SELECT id "
+        String sql = "SELECT id, isAdmin "
                 + "FROM user "
                 + "WHERE user_id = ? && password = ?";
         
@@ -151,7 +151,8 @@ public class UserDb {
                ps.setString(2, password);
                ResultSet rs = ps.executeQuery();
                if(rs.next()){
-                   user = new User(rs.getInt("id"));
+                   user = new User(rs.getInt("id"),
+                   rs.getInt("isAdmin"));
                } else {
                    user = null;
                }

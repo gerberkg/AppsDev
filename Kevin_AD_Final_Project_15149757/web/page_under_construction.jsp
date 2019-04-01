@@ -10,11 +10,10 @@
 
 <form action="recipeGenerator" method="post">
     <section>
+        <p class="error"><i><c:out value="${message}" default="" /></i></p>
         <h2 class="welcome">Welcome to the recipe generator!</h2>
-        
-        <p>You must be a registered user in order to use this site.</p>
-        <p>Please click the Login option above to login, or the User Registration option 
-            to register as a new user.</p>
+        <h1>Page is still under construction!</h1>
+        <h1>Please try again at a later date.</h1>
     </section>
 </form>
 <c:import url="/includes/footer.jsp"></c:import>
